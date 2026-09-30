@@ -81,14 +81,12 @@ const ReviewPage = () => {
                 onSpeak={() => void playKorean(current.korean)}
             >
                 {!revealed && (
-                    <>
-                        <Button type="primary" onClick={() => setRevealed(true)}>
-                            显示答案
-                        </Button>
-                        <Typography.Text type="secondary">看完答案后即可左右滑动评分</Typography.Text>
-                    </>
+                    <Button type="primary" onClick={() => setRevealed(true)}>
+                        显示答案
+                    </Button>
                 )}
             </WordCard>
+            {!revealed && <Typography.Text type="secondary">看完答案后即可左右滑动评分</Typography.Text>}
 
             {revealed && (
                 <>

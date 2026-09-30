@@ -3,7 +3,6 @@ import { Button, Space } from 'antd';
 import { useRef, useState } from 'react';
 import type { PointerEvent, ReactNode } from 'react';
 
-import { getLearningLevel } from '@/constant/learningLevel';
 import type { Word } from '@/types';
 import { simplifyHanja } from '@/utils/simplifyHanja';
 
@@ -86,16 +85,9 @@ const WordCard = ({ word, revealed, onSpeak, direction = 'k2c', onSwipe, childre
         >
             {onSwipe && (
                 <div className="word-card__swipe-tip" aria-hidden="true">
-                    {dragX < -24 ? '记住' : dragX > 24 ? '没记住' : '记住 · 没记住'}
+                    {dragX < -24 ? '← 记住' : dragX > 24 ? '没记住 →' : '← 记住 · 没记住 →'}
                 </div>
             )}
-            <div className="word-card__level">
-                {getLearningLevel(word) === 'beginner'
-                    ? '初级'
-                    : getLearningLevel(word) === 'intermediate'
-                      ? '进阶'
-                      : '高级'}
-            </div>
 
             {direction === 'c2k' ? (
                 <>
