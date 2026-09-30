@@ -1,0 +1,8 @@
+{
+    "안녕하세요. 만나서 반갑습니다.": "audio/ko/sample-hello.wav",
+    "학생": "audio/ko/sample-student.wav",
+    "병원": "audio/ko/sample-hospital.wav",
+    "체크인하고 싶어요.": "audio/ko/sample-hotel-checkin.wav",
+    "주문할게요.": "audio/ko/sample-restaurant-order.wav",
+    "도와주세요.": "audio/ko/sample-travel-help.wav"
+}
