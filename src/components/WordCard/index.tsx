@@ -86,7 +86,7 @@ const WordCard = ({ word, revealed, onSpeak, direction = 'k2c', onSwipe, childre
         >
             {onSwipe && (
                 <div className="word-card__swipe-tip" aria-hidden="true">
-                    {dragX < -24 ? '← 记住' : dragX > 24 ? '没记住 →' : '← 记住 · 没记住 →'}
+                    {dragX < -24 ? '记住' : dragX > 24 ? '没记住' : '记住 · 没记住'}
                 </div>
             )}
             <div className="word-card__level">

@@ -91,9 +91,7 @@ const ReversePage = () => {
                     <Button type="primary" onClick={() => handleNext(true)}>
                         记住
                     </Button>
-                    <Button danger onClick={() => handleNext(false)}>
-                        没记住
-                    </Button>
+                    <Button onClick={() => handleNext(false)}>没记住</Button>
                 </Space>
             )}
         </Flex>

@@ -65,9 +65,9 @@ const useStyles = createStyles(({ css, token }) =>
             },
 
             '& .word-card__speak-button': {
-                width: 44,
-                height: 44,
-                fontSize: token.fontSizeHeading4
+                width: 36,
+                height: 36,
+                fontSize: token.fontSize
             },
 
             '@media (max-width: 600px)': {

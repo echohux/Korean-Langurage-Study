@@ -79,9 +79,9 @@ const LearnPage = () => {
             </Typography.Text>
             <WordCard word={current} revealed onSwipe={handleScore} onSpeak={() => void playKorean(current.korean)}>
                 <Button type="primary" onClick={() => handleScore(true)}>
-                    ← 记住
+                    记住
                 </Button>
-                <Button onClick={() => handleScore(false)}>没记住 →</Button>
+                <Button onClick={() => handleScore(false)}>没记住</Button>
             </WordCard>
             <ExplanationPanel key={current.id} word={current} />
         </Flex>
