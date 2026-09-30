@@ -88,11 +88,11 @@ const ReversePage = () => {
 
             {revealed && (
                 <Space wrap style={{ marginTop: 8 }}>
-                    <Button danger onClick={() => handleNext(false)}>
-                        没记住
-                    </Button>
                     <Button type="primary" onClick={() => handleNext(true)}>
                         记住
+                    </Button>
+                    <Button danger onClick={() => handleNext(false)}>
+                        没记住
                     </Button>
                 </Space>
             )}
