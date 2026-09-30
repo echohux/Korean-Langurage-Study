@@ -55,6 +55,16 @@ export interface ReviewRecord {
     lastGrade: ReviewGrade;
     /** 最近复习时间（ISO 字符串） */
     lastReviewedAt: string;
+    /** 复习历史，用于本地数据分析 */
+    history?: ReviewEvent[];
+}
+
+/** 单次复习事件 */
+export interface ReviewEvent {
+    /** 本次评分 */
+    grade: ReviewGrade;
+    /** 复习时间（ISO 字符串） */
+    reviewedAt: string;
 }
 
 /** LLM 生成的例句 */

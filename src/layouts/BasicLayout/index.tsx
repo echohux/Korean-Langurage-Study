@@ -100,6 +100,9 @@ const BasicLayout = () => {
                     <NavLink to="/sentences" className={({ isActive }) => (isActive ? 'is-active' : undefined)}>
                         句子学习
                     </NavLink>
+                    <NavLink to="/analytics" className={({ isActive }) => (isActive ? 'is-active' : undefined)}>
+                        数据分析
+                    </NavLink>
                 </nav>
             </Layout.Header>
             <Layout.Content className="basic-layout__content">

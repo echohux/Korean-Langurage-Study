@@ -21,7 +21,8 @@ export const createInitialRecord = (wordId: string): ReviewRecord => {
         repetitions: 0,
         dueDate: now,
         lastGrade: 'again',
-        lastReviewedAt: now
+        lastReviewedAt: now,
+        history: []
     };
 };
 
@@ -55,7 +56,8 @@ export const scheduleNext = (record: ReviewRecord, grade: ReviewGrade): ReviewRe
         repetitions,
         dueDate: new Date(now.getTime() + interval * DAY_MS).toISOString(),
         lastGrade: grade,
-        lastReviewedAt: now.toISOString()
+        lastReviewedAt: now.toISOString(),
+        history: [...(record.history ?? []), { grade, reviewedAt: now.toISOString() }]
     };
 };
 

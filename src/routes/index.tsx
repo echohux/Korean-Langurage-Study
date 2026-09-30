@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
 import BasicLayout from '@/layouts/BasicLayout';
+import AnalyticsPage from '@/pages/analytics';
 import DashboardPage from '@/pages/dashboard';
 import LearnPage from '@/pages/learn';
 import ReversePage from '@/pages/reverse';
@@ -14,6 +15,7 @@ const router = createBrowserRouter(
             element: <BasicLayout />,
             children: [
                 { index: true, element: <DashboardPage /> },
+                { path: 'analytics', element: <AnalyticsPage /> },
                 { path: 'learn', element: <LearnPage /> },
                 { path: 'review', element: <ReviewPage /> },
                 { path: 'reverse', element: <ReversePage /> },
