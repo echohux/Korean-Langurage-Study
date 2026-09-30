@@ -115,6 +115,9 @@ const DashboardPage = () => {
                 <Button size="large" disabled={stats.due === 0} onClick={() => navigate('/review')}>
                     开始复习{stats.due ? `（${stats.due}）` : ''}
                 </Button>
+                <Button size="large" onClick={() => navigate('/analytics')}>
+                    数据分析
+                </Button>
             </Space>
         </Flex>
     );
