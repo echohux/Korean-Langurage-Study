@@ -1,8 +1,9 @@
+import { SoundOutlined } from '@ant-design/icons';
 import { Button, List, Typography } from 'antd';
 
 import { EXAMPLES } from '@/data/examples.seed';
 import { GRAMMAR_ZH } from '@/data/grammar.zh';
-import { isTtsSupported, speakKorean } from '@/services/tts';
+import { isKoreanPlaybackSupported, playKorean } from '@/services/tts';
 import type { Word } from '@/types';
 
 /** 例句面板：直接读取离线预生成数据，运行时不调用任何模型、不联网 */
@@ -33,12 +34,11 @@ const ExplanationPanel = ({ word }: { word: Word }) => {
                             <Button
                                 key="speak"
                                 type="link"
-                                disabled={!isTtsSupported()}
+                                disabled={!isKoreanPlaybackSupported()}
                                 aria-label={`朗读例句：${item.ko}`}
-                                onClick={() => speakKorean(item.ko)}
-                            >
-                                朗读
-                            </Button>
+                                icon={<SoundOutlined />}
+                                onClick={() => void playKorean(item.ko)}
+                            />
                         ]}
                     >
                         <div>

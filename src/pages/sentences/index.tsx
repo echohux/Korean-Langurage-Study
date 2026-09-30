@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import SentenceCard from '@/components/SentenceCard';
 import { SCENE_WORDS } from '@/data/scene-words.seed';
 import { useSrsStore } from '@/hooks/useSrsStore';
-import { speakKorean } from '@/services';
+import { playKorean } from '@/services';
 import { SCENE_LABELS } from '@/types';
 import type { SceneCategory } from '@/types';
 
@@ -96,7 +96,7 @@ const SentencesPage = () => {
             </Typography.Text>
             <SentenceCard
                 word={current}
-                onSpeak={() => current.scenario && speakKorean(current.scenario.ko)}
+                onSpeak={() => current.scenario && void playKorean(current.scenario.ko)}
                 onSwipe={handleScore}
             >
                 <Button type="primary" onClick={() => handleScore(true)}>

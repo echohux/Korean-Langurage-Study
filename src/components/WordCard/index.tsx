@@ -1,7 +1,9 @@
-import { Button, Space, Tag } from 'antd';
+import { SoundOutlined } from '@ant-design/icons';
+import { Button, Space } from 'antd';
 import { useRef, useState } from 'react';
 import type { PointerEvent, ReactNode } from 'react';
 
+import { getLearningLevel } from '@/constant/learningLevel';
 import type { Word } from '@/types';
 import { simplifyHanja } from '@/utils/simplifyHanja';
 
@@ -87,7 +89,13 @@ const WordCard = ({ word, revealed, onSpeak, direction = 'k2c', onSwipe, childre
                     {dragX < -24 ? '← 记住' : dragX > 24 ? '没记住 →' : '← 记住 · 没记住 →'}
                 </div>
             )}
-            <Tag color="blue">TOPIK {word.topikLevel}</Tag>
+            <div className="word-card__level">
+                {getLearningLevel(word) === 'beginner'
+                    ? '初级'
+                    : getLearningLevel(word) === 'intermediate'
+                      ? '进阶'
+                      : '高级'}
+            </div>
 
             {direction === 'c2k' ? (
                 <>
@@ -115,12 +123,6 @@ const WordCard = ({ word, revealed, onSpeak, direction = 'k2c', onSwipe, childre
                                     汉字：<span className="word-card__hanja">{simplifyHanja(word.hanja)}</span>
                                 </div>
                             )}
-                            <div className="word-card__chinese">{word.chinese}</div>
-                            {word.isSinoKorean && word.hanja && (
-                                <div className="word-card__hint">
-                                    汉字词联想：「{word.korean}」= {word.hanja} → {word.chinese}
-                                </div>
-                            )}
                         </>
                     )}
                 </>
@@ -128,7 +130,14 @@ const WordCard = ({ word, revealed, onSpeak, direction = 'k2c', onSwipe, childre
 
             <div className="word-card__actions">
                 <Space wrap>
-                    {koreanVisible && <Button onClick={onSpeak}>朗读</Button>}
+                    {koreanVisible && (
+                        <Button
+                            className="word-card__speak-button"
+                            aria-label={`朗读：${word.korean}`}
+                            icon={<SoundOutlined />}
+                            onClick={onSpeak}
+                        />
+                    )}
                     {children}
                 </Space>
             </div>

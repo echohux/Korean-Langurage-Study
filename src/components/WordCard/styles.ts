@@ -64,6 +64,12 @@ const useStyles = createStyles(({ css, token }) =>
                 marginTop: token.marginLG
             },
 
+            '& .word-card__speak-button': {
+                width: 44,
+                height: 44,
+                fontSize: token.fontSizeHeading4
+            },
+
             '@media (max-width: 600px)': {
                 width: '100%',
                 padding: token.padding,

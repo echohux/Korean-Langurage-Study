@@ -1,3 +1,4 @@
+import { SoundOutlined } from '@ant-design/icons';
 import { Button, Space } from 'antd';
 import { useRef, useState } from 'react';
 import type { PointerEvent, ReactNode } from 'react';
@@ -92,9 +93,12 @@ const SentenceCard = ({ word, onSpeak, onSwipe, children }: SentenceCardProps) =
             <div className="sentence-card__hint">← 记住 · 没记住 →</div>
             <div className="sentence-card__actions">
                 <Space wrap>
-                    <Button onClick={onSpeak} disabled={!scenario}>
-                        朗读句子
-                    </Button>
+                    <Button
+                        aria-label={`朗读句子：${scenario?.ko ?? ''}`}
+                        disabled={!scenario}
+                        icon={<SoundOutlined />}
+                        onClick={onSpeak}
+                    />
                     {children}
                 </Space>
             </div>

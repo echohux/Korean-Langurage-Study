@@ -32,9 +32,9 @@ export const scheduleNext = (record: ReviewRecord, grade: ReviewGrade): ReviewRe
     let { ease, interval, repetitions } = record;
 
     if (quality < 3) {
-        // 答错：重复次数清零，间隔回到 1 天
+        // 没记住：重复次数清零，立即进入复习队列
         repetitions = 0;
-        interval = 1;
+        interval = 0;
     } else {
         repetitions += 1;
         if (repetitions === 1) {

@@ -3,7 +3,7 @@ import type { Word } from '@/types';
 import { SCENE_WORDS } from './scene-words.seed';
 
 /**
- * 汉字词种子集：面向中国人学韩语的高频汉字词（TOPIK 1-3）。
+ * 汉字词种子集：面向中国人学韩语的高频词，按内部难度等级组织。
  * 每个词都标注了对应汉字，用于「汉字联想」记忆。后续可扩充或改由脚本批量标注生成。
  */
 const CORE_WORDS: Word[] = [

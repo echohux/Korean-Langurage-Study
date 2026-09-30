@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 import WordCard from '@/components/WordCard';
 import { WORDS } from '@/data/words.seed';
 import { useSrsStore } from '@/hooks/useSrsStore';
-import { speakKorean } from '@/services';
+import { playKorean } from '@/services';
 
 /** 反向练习页：给出中文/汉字，回忆对应的韩语词（强化汉字词双向联想） */
 const ReversePage = () => {
@@ -77,7 +77,7 @@ const ReversePage = () => {
                 revealed={revealed}
                 direction="c2k"
                 onSwipe={revealed ? handleNext : undefined}
-                onSpeak={() => speakKorean(current.korean)}
+                onSpeak={() => void playKorean(current.korean)}
             >
                 {!revealed && (
                     <Button type="primary" onClick={() => setRevealed(true)}>
@@ -92,7 +92,7 @@ const ReversePage = () => {
                         没记住
                     </Button>
                     <Button type="primary" onClick={() => handleNext(true)}>
-                        记得
+                        记住
                     </Button>
                 </Space>
             )}

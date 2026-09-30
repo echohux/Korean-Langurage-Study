@@ -8,9 +8,10 @@ import { isDue } from '@/services';
 import {
     getKoreanVoices,
     getPreferredKoreanVoice,
+    isKoreanPlaybackSupported,
     isTtsSupported,
-    setPreferredKoreanVoice,
-    speakKorean
+    playKorean,
+    setPreferredKoreanVoice
 } from '@/services/tts';
 
 /** 概览页：学习进度总览 + 各学习入口 */
@@ -75,7 +76,7 @@ const DashboardPage = () => {
             <Card title="韩语朗读音色">
                 <Flex vertical gap={12}>
                     <Typography.Text type="secondary">
-                        试听后选择喜欢的音色；单词和例句共用。可用音色取决于当前浏览器和系统。
+                        已生成的 Qwen3-TTS 音频会优先播放；未生成的内容回退到这里选择的浏览器音色。
                     </Typography.Text>
                     <Space wrap>
                         <Select
@@ -93,8 +94,8 @@ const DashboardPage = () => {
                             ]}
                         />
                         <Button
-                            disabled={!isTtsSupported() || voices.length === 0}
-                            onClick={() => speakKorean('안녕하세요. 만나서 반갑습니다.')}
+                            disabled={!isKoreanPlaybackSupported()}
+                            onClick={() => void playKorean('안녕하세요. 만나서 반갑습니다.')}
                         >
                             试听
                         </Button>

@@ -26,7 +26,7 @@ export interface Word {
     romanization: string;
     /** 词性 */
     pos: PartOfSpeech;
-    /** TOPIK 等级 1-6 */
+    /** 词库难度原始等级 1-6，仅用于内部映射 */
     topikLevel: 1 | 2 | 3 | 4 | 5 | 6;
     /** 是否汉字词 */
     isSinoKorean: boolean;

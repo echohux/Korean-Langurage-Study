@@ -6,7 +6,7 @@ import ExplanationPanel from '@/components/ExplanationPanel';
 import WordCard from '@/components/WordCard';
 import { WORDS } from '@/data/words.seed';
 import { useSrsStore } from '@/hooks/useSrsStore';
-import { isDue, speakKorean } from '@/services';
+import { isDue, playKorean } from '@/services';
 import type { ReviewGrade } from '@/types';
 
 /** 评分按钮配置 */
@@ -78,7 +78,7 @@ const ReviewPage = () => {
                 word={current}
                 revealed={revealed}
                 onSwipe={revealed ? (remembered) => handleGrade(remembered ? 'good' : 'again') : undefined}
-                onSpeak={() => speakKorean(current.korean)}
+                onSpeak={() => void playKorean(current.korean)}
             >
                 {!revealed && (
                     <>

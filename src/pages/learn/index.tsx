@@ -8,7 +8,7 @@ import { getLearningLevel, LEARNING_LEVEL_OPTIONS } from '@/constant/learningLev
 import type { LearningLevel } from '@/constant/learningLevel';
 import { WORDS } from '@/data/words.seed';
 import { useSrsStore } from '@/hooks/useSrsStore';
-import { speakKorean } from '@/services';
+import { playKorean } from '@/services';
 
 /** 学新词页：逐个浏览未学的汉字词并加入复习计划 */
 const LearnPage = () => {
@@ -77,7 +77,7 @@ const LearnPage = () => {
             <Typography.Text type="secondary">
                 新词 {index + 1} / {queue.length}
             </Typography.Text>
-            <WordCard word={current} revealed onSwipe={handleScore} onSpeak={() => speakKorean(current.korean)}>
+            <WordCard word={current} revealed onSwipe={handleScore} onSpeak={() => void playKorean(current.korean)}>
                 <Button type="primary" onClick={() => handleScore(true)}>
                     ← 记住
                 </Button>
