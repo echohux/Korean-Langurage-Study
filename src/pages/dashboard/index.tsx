@@ -69,15 +69,12 @@ const DashboardPage = () => {
 
             <Card title="例句 / 语法">
                 <Typography.Text type="secondary">
-                    例句与语法讲解已离线内置，学习和复习时直接展示，无需联网、无需配置模型。
+                    例句与语法讲解已离线内置，学习和复习时直接展示，无需联网。
                 </Typography.Text>
             </Card>
 
             <Card title="韩语朗读音色">
                 <Flex vertical gap={12}>
-                    <Typography.Text type="secondary">
-                        已生成的 Qwen3-TTS 音频会优先播放；未生成的内容回退到这里选择的浏览器音色。
-                    </Typography.Text>
                     <Space wrap>
                         <Select
                             aria-label="选择韩语朗读音色"
